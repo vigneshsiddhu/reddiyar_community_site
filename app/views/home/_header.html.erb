@@ -1,0 +1,64 @@
+
+<div class="container ">
+  <div class="row">
+    <div id="head"><a href="http://www.rockfortreddiars.com"><%= image_tag('header.jpg', style: "width:100%;") %></a></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid table-bordered">
+        <ul class="nav navbar-nav">
+          <li ><a href="index.php">Home</a></li>
+          <li><a href="members_list.php">Members List</a></li>
+          <li><a href="gallery.php">Gallery</a></li> 
+          <li><a href="about_us.php">About Us</a></li> 
+          <li><a href="contact_us.php">Contact Us</a></li> 
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if current_user.present? %>
+          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to 'Edit profile', edit_profile_path(@profile) %></li>
+          <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+          <li><%= link_to 'Sign up', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div id="slider" class="col-md-12 col-sm-6 col-md-8 table-bordered">
+      <%= render "slider" %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div id="flash" class="col-md-12 col-sm-6 col-md-8 table-bordered"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div id="container-left" class="col-md-2 table-bordered">
+      <div id="gap"></div>
+      <div class="list-group">
+        <a href="#" class="list-group-item active">
+          <p class="list-group-item-text">Quick Links</p>
+        </a>
+        <a href="#" class="list-group-item">
+          <p class="list-group-item-text">Photo Gallery</p>
+        </a>
+        <a href="#" class="list-group-item">
+          <p class="list-group-item-text">Events</p>
+        </a>
+        <a href="#" class="list-group-item">
+          <p class="list-group-item-text">Members List</p>
+        </a>
+        <a href="#" class="list-group-item">
+          <p class="list-group-item-text">News</p>
+        </a>
+      </div>
+    </div>
