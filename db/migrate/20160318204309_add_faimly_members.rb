@@ -8,7 +8,6 @@ class AddFaimlyMembers < ActiveRecord::Migration
       t.text :education
       t.string :email
       t.belongs_to :profile
- 
       t.timestamps
     end
   end

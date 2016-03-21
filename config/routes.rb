@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :family_members
-  resources :profiles
+  resources :profiles, only: [:show, :update, :create, :new, :destroy, :edit]
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -42,6 +42,7 @@ gem 'annotate'
 gem 'awesome_print'
 gem 'pry-awesome_print'
 gem 'pg'
+gem "nested_form"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

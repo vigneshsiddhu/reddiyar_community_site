@@ -1,4 +1,26 @@
+<div style="margin: 0 30%; padding: 3%; box-shadow: 0 0 8px #d6d6d6;">
 <p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_family_member_path(@family_member) %> |
-<%= link_to 'Back', family_members_path %>
+  <h1>Member Details</h1>
+  <p>
+    <strong>name:</strong>
+    <%= @family_member[:name] %>
+  </p>
+  <p>
+    <strong>Relatioinship:</strong>
+    <%= @family_member[:relationship] %>
+  </p>
+  <p>
+    <strong>Blood_group:</strong>
+    <%= @family_member[:blood_group] %>
+  </p>
+  <p>
+    <strong>Education:</strong>
+    <%= @family_member[:education] %>
+  </p>
+  <p>
+    <strong>Email:</strong>
+    <%= @family_member[:email] %>
+  </p>
+<%= link_to 'Edit', edit_family_member_path(@family_member), {:class => 'btn btn-default'} %> |
+<%= link_to 'Back', family_members_path, {:class => 'btn btn-default'} %>
+</div>

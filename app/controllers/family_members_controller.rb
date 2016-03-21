@@ -4,7 +4,7 @@ class FamilyMembersController < ApplicationController
   # GET /family_members
   # GET /family_members.json
   def index
-    @family_members = FamilyMember.where()
+    @family_member = FamilyMember.where(profile_id: params[:profile_id])
   end
 
   # GET /family_members/1
@@ -68,11 +68,13 @@ class FamilyMembersController < ApplicationController
     end
 
     def set_profile_id
-      params[:profile_id] = current_user.profile.id
+      params[:profile_id] = Profile.find_by(email: current_user.email).id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def family_member_params
-      params.fetch(:family_member, {})
+      # params.fetch(:family_member, {})
+      params[:family_member][:profile_id] = params[:profile_id]
+      params.require(:family_member).permit(:name, :relationship, :blood_group, :age, :education, :email, :profile_id)
     end
 end

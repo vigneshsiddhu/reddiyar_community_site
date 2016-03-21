@@ -1,5 +1,8 @@
+<div style="padding: 0 30%">
 <h1>New Family Member</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Back', family_members_path %>
+<%= link_to 'List Family', family_members_path(@profile),{:class => 'btn btn-default'} %>
+</div>

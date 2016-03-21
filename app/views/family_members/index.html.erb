@@ -1,25 +1,58 @@
+<div style="margin: 0 10%; padding: 2.5%; width: 80%; box-shadow: 0 0 8px #d6d6d6;">
 <p id="notice"><%= notice %></p>
-
 <h1>Listing Family Members</h1>
-
+<br />
 <table>
   <thead>
     <tr>
+      <th>Name</th>
+      <th>Relatioinship</th>
+      <th>Blood group</th>
+      <th>Age</th>
+      <th>Education</th>
+      <th>Email</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @family_members.each do |family_member| %>
+    <% @family_member.each do |family_members| %>
       <tr>
-        <td><%= link_to 'Show', family_member %></td>
-        <td><%= link_to 'Edit', edit_family_member_path(family_member) %></td>
-        <td><%= link_to 'Destroy', family_member, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= family_members.name %></td>
+        <td><%= family_members.relationship %></td>
+        <td><%= family_members.blood_group %></td>
+        <td><%= family_members.age %></td>
+        <td><%= family_members.education %></td>
+        <td><%= family_members.email %></td>
+        <td><%= link_to 'Show', family_members, {:class => 'btn '}  %></td>
+        <td><%= link_to 'Edit', edit_family_member_path(family_members), {:class => 'btn '}  %></td>
+        <td><%= link_to 'Destroy', family_members, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
+<span>
+  <%= link_to 'New Family member', new_family_member_path,{:class => 'btn btn-default'}  %>
+  <%= link_to 'Profile', edit_profile_path(params["profile_id"]), {:class => 'btn btn-default'}  %>
+</span>
+</div>
+<style type="text/css">
+table, td, th {
+  border: 1px solid black;
+}
 
-<%= link_to 'New Family member', new_family_member_path %>
+table {
+  border-collapse: collapse;
+  width: 80%;
+}
+table, h1, span {
+  margin: 0 10%;
+}
+th {
+  height: 50px;
+  padding: 2% 2%;
+}
+td {
+  padding: 2% 2%;
+}
+</style>
